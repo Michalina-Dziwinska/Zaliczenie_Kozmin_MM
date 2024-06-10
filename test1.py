@@ -25,6 +25,6 @@ def test_is_kiwi_successfully_loaded_2():
 def click_top_nav_UWAGAnieDzialaTo():
     driver = webdriver.Chrome()
     driver.get("https://www.kiwi.com/pl/")
-    hamburger_button = element_by_attribute = driver.find_element(By.CSS_SELECTOR, '[data-test="TopNav-SideNav-Open"]')
+    hamburger_button = driver.find_element(By.CSS_SELECTOR, '[data-test="TopNav-SideNav-Open"]')
     hamburger_button.click()
     assert "Udało się"
