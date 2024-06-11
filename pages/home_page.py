@@ -8,5 +8,5 @@ class HomePage:
     def accept_cookies_policy(self):
         self.driver.find_element(By.CSS_SELECTOR, '[data-test="CookiesPopup-Accept"]').click()
 
-    def
-        driver.find_element(By.CSS_SELECTOR, '[data-test="TopNav-SideNav-Open"]').click()
+    def hamburger_open(self):
+        self.driver.find_element(By.CSS_SELECTOR, '[data-test="TopNav-SideNav-Open"]').click()
