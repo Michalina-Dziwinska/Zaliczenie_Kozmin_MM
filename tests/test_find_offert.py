@@ -14,5 +14,7 @@ def test_find_offer():
     home_page = HomePage(driver)
     home_page.accept_cookies_policy()
     offers_page = OffersPage(driver)
-    offers_page.clean_placepicker_input()
+    offers_page.clean_placepicker_input2()
     offers_page.search_country()
+    offers_page.empty_place_click()
+    time.sleep(5)
