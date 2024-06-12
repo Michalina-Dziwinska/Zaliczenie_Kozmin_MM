@@ -16,6 +16,7 @@ def test_find_offer():
     offers_page = OffersPage(driver)
     offers_page.clean_placepicker_input()
     offers_page.korea_click()
+    offers_page.floating_popup_close()
     offers_page.choose_date()
     offers_page.click_firs_month_button()
     offers_page.choose_duration()
