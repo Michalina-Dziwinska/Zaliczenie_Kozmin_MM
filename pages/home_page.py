@@ -10,3 +10,6 @@ class HomePage:
 
     def hamburger_open(self):
         self.driver.find_element(By.CSS_SELECTOR, '[data-test="TopNav-SideNav-Open"]').click()
+
+    def offers_page_click(self):
+        self.driver.find_element(By.CSS_SELECTOR, "div.orbit-button-primitive-content").click()
