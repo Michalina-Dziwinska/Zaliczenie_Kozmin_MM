@@ -1,3 +1,5 @@
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -24,6 +26,5 @@ def test_registration():
             (By.XPATH,
              "//div[contains(@class, 'mt-md') and contains(@class, 'de:[&_.orbit-modal-heading]:p-0')]//h2[contains(text(), 'Potwierdź adres e-mail')]")))
     assert 'Potwierdź adres e-mail' in confirmation_message.text
-
 
 
