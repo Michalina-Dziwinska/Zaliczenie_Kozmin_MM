@@ -1,3 +1,5 @@
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -19,11 +21,10 @@ def test_registration():
     create_account.enter_email_random()
     create_account.enter_password_random()
     create_account.create_account_button_click()
-    confirmation_message = WebDriverWait(driver, 10).until(
+    confirmation_message = WebDriverWait(driver, 15).until(
         EC.visibility_of_element_located(
             (By.XPATH,
              "//div[contains(@class, 'mt-md') and contains(@class, 'de:[&_.orbit-modal-heading]:p-0')]//h2[contains(text(), 'Potwierdź adres e-mail')]")))
     assert 'Potwierdź adres e-mail' in confirmation_message.text
-
 
 

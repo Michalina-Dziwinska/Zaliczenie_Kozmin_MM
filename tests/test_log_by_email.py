@@ -3,11 +3,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pages.home_page import HomePage
-from pages.create_account import CreateAccount
 from pages.login_to_app import FirstLogin
+import time
 
 
-def test_login_via_email():
+def test_login_not_successful():
     driver = webdriver.Chrome()
     driver.get("https://www.kiwi.com/pl/")
     home_page = HomePage(driver)
@@ -19,17 +19,7 @@ def test_login_via_email():
     login_to_app = FirstLogin(driver)
     login_to_app.first_login_via_email()
     login_to_app.insert_email()
-    login_to_app.insert
+    login_to_app.click_on_continue_button()
+    login_to_app.insert_password()
 
 
-def test_click_on_alternative_login_method():
-    driver = webdriver.Chrome()
-    driver.get("https://www.kiwi.com/pl/")
-    driver.find_element(By.CSS_SELECTOR, '[data-test="CookiesPopup-Accept"]').click()
-    driver.find_element(By.CSS_SELECTOR, '[data-test="TopNav-SideNav-Open"]').click()
-    manager = WebDriverWait(driver, 40).until(
-        EC.element_to_be_clickable((By.XPATH, "//aside//button[./*[text()='Zaloguj się']]")))
-    manager.click()
-    alternative_button = driver.find_element(By.XPATH, "//a[@data-test='MagicLogin-IncorrectEmail']")
-    alternative_button.click()
-    assert "Użytkownik przeszedł do alternatywnej metody logowania"

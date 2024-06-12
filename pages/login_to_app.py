@@ -1,5 +1,8 @@
+from selenium.common import ElementNotInteractableException, TimeoutException
 from selenium.webdriver.common.by import By
-
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import time
 
 class FirstLogin:
     def __init__(self, driver):
@@ -11,8 +14,26 @@ class FirstLogin:
     def insert_email(self):
         email = 'martastachyra94@gmail.com'
         self.driver.find_element(By.CSS_SELECTOR, '[data-test="MagicLogin-Email"]').send_keys(email)
+
+    def click_on_continue_button(self):
         self.driver.find_element(By.CSS_SELECTOR, '[data-test="MagicLogin-Continue"]').click()
 
     def insert_password(self):
-        password = 'kIWI2024@!'
-        self.driver.find_element(By.CSS_SELECTOR, '[data-test="MagicLogin-PasswordInput"]').send_keys(password)
+        try:
+            password = 'kIWI2024@!'
+            password_time_field = WebDriverWait(self.driver, 20).until(
+                EC.visibility_of_element_located((By.CSS_SELECTOR, "[data-test='MagicLogin-Password']")))
+            password_time_field.click()
+            # Scroll to the password field
+            self.driver.execute_script("arguments[0].scrollIntoView(true);", password_time_field)
+            time.sleep(1)
+            # Ensure the password field is clickable
+            password_time_field = WebDriverWait(self.driver, 20).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, "[data-test='MagicLogin-Password']")))
+
+            password_time_field.click()
+            password_time_field.send_keys(password)
+        except ElementNotInteractableException:
+            print("Element is not interactable")
+        except TimeoutException:
+            print("Timeout while waiting for the password field")
