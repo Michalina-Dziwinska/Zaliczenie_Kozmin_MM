@@ -11,6 +11,7 @@ from pages.create_account import CreateAccount
 def test_registration():
     driver = webdriver.Chrome()
     driver.get("https://www.kiwi.com/pl/")
+    driver.maximize_window()
     home_page = HomePage(driver)
     home_page.accept_cookies_policy()
     home_page.hamburger_open()

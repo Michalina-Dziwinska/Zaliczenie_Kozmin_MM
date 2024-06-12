@@ -10,6 +10,7 @@ import time
 def test_login_not_successful():
     driver = webdriver.Chrome()
     driver.get("https://www.kiwi.com/pl/")
+    driver.maximize_window()
     home_page = HomePage(driver)
     home_page.accept_cookies_policy()
     home_page.hamburger_open()
