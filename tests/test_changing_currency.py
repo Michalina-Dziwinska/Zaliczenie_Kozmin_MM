@@ -13,3 +13,4 @@ def test_choose_language_and_ccy():
     changing_currency.select_currency()
     changing_currency.click_assign_button()
 
+
