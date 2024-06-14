@@ -38,7 +38,7 @@ class SearchFlight:
     def click_on_search_button(self):
 
         self.driver.find_element(By.CSS_SELECTOR, '[data-test="LandingSearchButton"]').click()
-        time.sleep(6)
+        time.sleep(4)
 
     def search_page_results(self):
 
