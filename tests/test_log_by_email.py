@@ -23,4 +23,6 @@ def test_login_not_successful():
     login_to_app.click_on_continue_button()
     login_to_app.insert_password()
 
+    driver.quit()
+
 
