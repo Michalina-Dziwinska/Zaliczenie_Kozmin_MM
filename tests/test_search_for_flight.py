@@ -19,10 +19,7 @@ def test_insert_from_value():
     time.sleep(2)
     search_flight.click_on_search_button()
     search_flight.search_page_results()
-    #search_flight.add_people_amount()
-    #time.sleep(4)
 
-    # search_flight.insert_dates()
 
 
 
