@@ -2,6 +2,7 @@ from selenium import webdriver
 from pages.search_flight import SearchFlight
 from pages.home_page import HomePage
 
+
 import time
 
 
@@ -15,7 +16,11 @@ def test_insert_from_value():
     search_flight = SearchFlight(driver)
     search_flight.choose_your_destiny_from()
     search_flight.choose_your_destiny_to()
-    time.sleep(3)
+    time.sleep(4)
+    search_flight.click_on_search_button()
+    search_flight.search_page_results()
+    #search_flight.add_people_amount()
+    #time.sleep(4)
 
     # search_flight.insert_dates()
 
