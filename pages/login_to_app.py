@@ -24,10 +24,8 @@ class FirstLogin:
             password_time_field = WebDriverWait(self.driver, 20).until(
                 EC.visibility_of_element_located((By.CSS_SELECTOR, "[data-test='MagicLogin-Password']")))
             password_time_field.click()
-            # Scroll to the password field
             self.driver.execute_script("arguments[0].scrollIntoView(true);", password_time_field)
             time.sleep(1)
-            # Ensure the password field is clickable
             password_time_field = WebDriverWait(self.driver, 20).until(
                 EC.element_to_be_clickable((By.CSS_SELECTOR, "[data-test='MagicLogin-Password']")))
 

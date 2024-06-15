@@ -9,18 +9,16 @@ class ChangeCurrency:
 
     def __init__(self, driver):
         self.driver = driver
+
     def click_on_currency(self):
-        #self.driver.find_element(By.CSS_SELECTOR, '[data-test= "TopNav-RegionalSettingsButton"]').click()
         top_nav_region_button = (WebDriverWait(self.driver, 10).until
-                             (EC.visibility_of_element_located(
-                                 (By.CSS_SELECTOR, '[data-test= "TopNav-RegionalSettingsButton"]'))))
+            (EC.visibility_of_element_located(
+            (By.CSS_SELECTOR, '[data-test= "TopNav-RegionalSettingsButton"]'))))
         top_nav_region_button.click()
 
         time.sleep(5)
 
     def select_language(self):
-        #self.driver.find_element(By.CSS_SELECTOR, '[data-test= "LanguageSelect"]').click()
-
         dropdown = WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-test= "LanguageSelect"]')))
 
@@ -50,8 +48,3 @@ class ChangeCurrency:
         assign_button.click()
 
         time.sleep(5)
-
-
-
-
-
